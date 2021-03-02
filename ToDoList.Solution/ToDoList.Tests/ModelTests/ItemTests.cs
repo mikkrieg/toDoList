@@ -60,7 +60,6 @@ namespace ToDoList.Tests
 
             List<Item> result = Item.GetAll();
             CollectionAssert.AreEqual(newList, result);
-
             
         }
     }
