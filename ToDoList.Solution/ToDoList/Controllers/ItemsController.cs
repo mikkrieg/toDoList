@@ -6,17 +6,12 @@ namespace ToDoList.Controllers
 {
     public class ItemsController : Controller
     {
-        [HttpGet("/items")]
-        public ActionResult Index()
-        {
-            List<Item> allItems = Item.GetAll();
-            return View(allItems);
-        }
 
-        [HttpGet("/items/new")]
-        public ActionResult New()
+        [HttpGet("/categories/{categoryId}/items/new")]
+        public ActionResult New(int categoryId)
         {
-            return View();
+            Category category = Category.Find(categoryId);
+            return View(category);
         }
 
         [HttpPost("/items")]
