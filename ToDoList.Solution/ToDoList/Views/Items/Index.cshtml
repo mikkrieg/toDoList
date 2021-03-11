@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@using ToDoList.Models;
+@model List<ToDoList.Models.Item>;
+
+<h1>Items</h1>
+
+@if (Model.Count == 0)
+{
+  <h3>No Items have been created</h3>
+}
+
+<ul>
+  @foreach(Item item in Model)
+  {
+      <li>@Html.ActionLink($"{item.Description}", "Details", new { id = item.ItemId }) | @item.Category.Name</li>
+  }
+</ul>
+
+<button class="btn btn-dark">@Html.ActionLink("Add new item", "Create")</button>
+<button class="btn btn-dark">@Html.ActionLink("Home", "Index", "Home")</button>
+<button class="btn btn-dark">@Html.ActionLink("All categories", "Index", "Categories")</button>

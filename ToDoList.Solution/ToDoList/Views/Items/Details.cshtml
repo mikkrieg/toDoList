@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+
+@model ToDoList.Models.Item
+
+<h2>Item Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)<h3>
+<button class="btn btn-dark">@Html.ActionLink("Edit Item", "Edit", new { id = Model.ItemId })</button>
+<button class="btn btn-dark">@Html.ActionLink("Delete Item", "Delete", new { id = Model.ItemId })</button>
+<button class="btn btn-dark">@Html.ActionLink("Back to list", "Index")</button>
+<button class="btn btn-dark">@Html.ActionLink("Back to category", "Details", "Categories", new { id = Model.CategoryId })
